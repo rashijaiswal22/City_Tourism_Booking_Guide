@@ -5,7 +5,7 @@ seamless interface for users to explore heritage sites, cuisine, and tour packag
 administrators.
 
 # 🛠️ Tech Stack & Tools
-phele 
+ 
 ## Frontend
 - Library : React.js (Hooks, Router, Axios)
 - Styling : Bootstrap 5, Custom CSS3 Animations
@@ -63,7 +63,7 @@ Follow these steps to set up the project on your local machine:
   spring.datasource.url=jdbc:mysql://localhost:3306/lucknow_tourism_db
   spring.datasource.username=your_username
   spring.datasource.password=your_password   ```
-* Run the application. The backend will start at http://localhost:8080.
+* Run the application. The backend will start at ` http://localhost:8080 `
 
 3. Frontend Execution (React)
 * Open the frontend folder in **VS Code**.
@@ -71,5 +71,32 @@ Follow these steps to set up the project on your local machine:
   npm install
 * After installation, start the development server:
   npm start
-* The application will be accessible at` http://localhost:3000.`
+* The application will be accessible at` http://localhost:3000`
   
+---
+
+## 📸 Screenshots
+
+ 🏠 Packages Page
+![Packages](packages.png)
+
+ 👤 User Dashboard
+![User Dashboard](dashboard_user.png)
+
+ 🛠️ Admin Dashboard
+![Admin Dashboard](dashboard_admin.png)
+
+ ❤️ Wishlist
+![Wishlist](wishlist.png)
+
+ 🛒 Cart
+![Cart](cart.png)
+
+ 👥 Manage Users
+![Manage Users](manage_users.png)
+
+ 📩 Manage Enquiries
+![Manage Enquiries](manage_enquiries.png)
+
+ 💬 Response System
+![Response](response.png)
