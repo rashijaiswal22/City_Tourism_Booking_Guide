@@ -18,7 +18,7 @@ const Contact = () => {
         e.preventDefault();
         try {
             // Backend API call
-            const response = await axios.post("http://localhost:8080/api/enquiries/send", formData);
+            const response = await axios.post("https://city-tourism-booking-guide.onrender.com/api/enquiries/send", formData);
             
             if(response.status === 200) {
                 alert("Message Sent Successfully! We will contact you soon.");
@@ -26,7 +26,7 @@ const Contact = () => {
             }
         } catch (error) {
             console.error("Error sending enquiry:", error);
-            alert("Failed to send message. Is Spring Boot running?");
+            alert("Failed to send message.");
         }
         
     };

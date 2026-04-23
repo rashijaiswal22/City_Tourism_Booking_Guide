@@ -11,7 +11,7 @@ const Packages = () => {
     useEffect(() => {
         const fetchPackages = async () => {
             try {
-                const res = await axios.get("http://localhost:8080/api/packages/all");
+                const res = await axios.get("https://city-tourism-booking-guide.onrender.com/api/packages/all");
                 setPackages(res.data);
                 setLoading(false);
             } catch (err) {
@@ -39,7 +39,7 @@ const Packages = () => {
         };
 
         try {
-            const response = await axios.post("http://localhost:8080/api/cart/add", cartItem);
+            const response = await axios.post("https://city-tourism-booking-guide.onrender.com/api/cart/add", cartItem);
             alert("Added to Cart! 🛒");
         } catch (error) {
             alert("Connection failed!");
@@ -63,7 +63,7 @@ const Packages = () => {
         };
 
         try {
-            await axios.post("http://localhost:8080/api/wishlist/add", wishItem);
+            await axios.post("https://city-tourism-booking-guide.onrender.com/api/wishlist/add", wishItem);
             alert("Added to Wishlist! ❤️");
         } catch (err) {
             alert("Error in adding!");

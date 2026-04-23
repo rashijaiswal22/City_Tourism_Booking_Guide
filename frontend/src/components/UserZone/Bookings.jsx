@@ -10,7 +10,7 @@ const Bookings = () => {
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
         if(user){
-            axios.get(`http://localhost:8080/api/bookings/user/${user.id}`)
+            axios.get(`https://city-tourism-booking-guide.onrender.com/api/bookings/user/${user.id}`)
             .then(res => { setMyBookings(res.data); })
             .catch(err => console.log("Booking Details Fetch Error : ",err));
         }
@@ -24,7 +24,7 @@ const Bookings = () => {
         if (confirmCancel) {
             try {
                 // for delete or status update call
-                await axios.delete(`http://localhost:8080/api/bookings/delete/${id}`);
+                await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/bookings/delete/${id}`);
                 
                 // UI se hatane ke liye
                 setMyBookings(myBookings.filter(booking => booking.id !== id));

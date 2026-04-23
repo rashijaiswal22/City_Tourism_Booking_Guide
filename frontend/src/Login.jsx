@@ -11,7 +11,7 @@ const Login = () => {
     const handleLogin = async (e) => {
     e.preventDefault();
     try {
-        const res = await axios.post("http://localhost:8080/api/users/login",{
+        const res = await axios.post("https://city-tourism-booking-guide.onrender.com/api/users/login",{
             email : user, password : pass
         });
         
@@ -64,4 +64,4 @@ const Login = () => {
     );
 };
 
-export default Login; // FIXED: Export statement theek kiya
+export default Login; 

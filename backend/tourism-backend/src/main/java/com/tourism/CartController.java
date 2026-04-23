@@ -4,11 +4,12 @@ import com.tourism.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/cart")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class CartController {
 
     @Autowired
@@ -34,3 +35,4 @@ public class CartController {
         return ResponseEntity.ok("Item removed from cart");
     }
 }
+

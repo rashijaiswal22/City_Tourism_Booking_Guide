@@ -23,7 +23,7 @@ const Profile = () => {
         return;
     }
 
-    axios.get(`http://localhost:8080/api/users/${savedUser.id}`)
+    axios.get(`https://city-tourism-booking-guide.onrender.com/api/users/${savedUser.id}`)
     .then(res => {
         setUserData(prevState => ({
             ...prevState, // previous data 
@@ -42,7 +42,7 @@ const handleChange = (e) => {
    
    const handleSave = async () => {
     try {
-        await axios.put(`http://localhost:8080/api/users/update/${savedUser.id}`, userData);
+        await axios.put(`https://city-tourism-booking-guide.onrender.com/api/users/update/${savedUser.id}`, userData);
         setIsEditing(false);
         alert("Profile Updated Permanently! ✅");
         

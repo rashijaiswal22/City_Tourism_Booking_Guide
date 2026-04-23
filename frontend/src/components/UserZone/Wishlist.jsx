@@ -10,7 +10,7 @@ const Wishlist = () => {
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
         if(user){
-            axios.get(`http://localhost:8080/api/wishlist/user/${user.id}`)
+            axios.get(`https://city-tourism-booking-guide.onrender.com/api/wishlist/user/${user.id}`)
                 .then(res => setWishlistItems(res.data))
                 .catch(err => console.log(err));
         }
@@ -19,7 +19,7 @@ const Wishlist = () => {
     // 2. Remove from Wishlist
     const handleRemove = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/wishlist/delete/${id}`);
+            await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/wishlist/delete/${id}`);
             setWishlistItems(wishlistItems.filter(item => item.id !== id));
         } catch (err) {
             alert("Failed to Delete!");
@@ -29,7 +29,7 @@ const Wishlist = () => {
     const handleMoveToCart = async (item) => {
         const user = JSON.parse(localStorage.getItem("user"));
         try {
-            await axios.post("http://localhost:8080/api/cart/add", {
+            await axios.post("https://city-tourism-booking-guide.onrender.com/api/cart/add", {
                 userId: user.id,
                 packId: item.packId,
                 imageUrl: item.imageUrl,

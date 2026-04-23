@@ -9,7 +9,7 @@ const ManageBookings = () => {
     const navigate = useNavigate();
     
     const fetchBookings = () => {
-        axios.get("http://localhost:8080/api/bookings/all")
+        axios.get("https://city-tourism-booking-guide.onrender.com/api/bookings/all")
             .then(res => setBookings(res.data))
             .catch(err => console.error("Error fetching bookings:", err));
     };
@@ -20,7 +20,7 @@ const ManageBookings = () => {
 
     const handleRemove = (id) => {
         if (window.confirm("Are you sure you want to delete this booking?")) {
-            axios.delete(`http://localhost:8080/api/bookings/delete/${id}`)
+            axios.delete(`https://city-tourism-booking-guide.onrender.com/api/bookings/delete/${id}`)
                 .then(() => {
                     setBookings(bookings.filter(b => b.id !== id));
                     alert("Booking Deleted Successfully!");

@@ -9,7 +9,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Backend se saare packages lana
+        // Fetch packages from backend
         const fetchAllPackages = async () => {
             try {
                 const res = await axios.get("http://localhost:8080/api/packages/all");

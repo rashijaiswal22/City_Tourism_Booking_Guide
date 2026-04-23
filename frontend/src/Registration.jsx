@@ -21,7 +21,7 @@ const Registration = () => {
             return;
         }
         try {
-        const response = await axios.post("http://localhost:8080/api/users/register", formData);
+        const response = await axios.post("https://city-tourism-booking-guide.onrender.com/api/users/register", formData);
         alert(response.data);
         navigate("/login");
         } catch (error) {

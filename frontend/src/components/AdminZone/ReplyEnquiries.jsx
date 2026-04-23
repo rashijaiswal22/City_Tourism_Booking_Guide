@@ -14,7 +14,7 @@ const ReplyEnquiry = () => {
     const sendReply = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:8080/api/enquiries/reply/${id}`, 
+            const response = await axios.put(`https://city-tourism-booking-guide.onrender.com/api/enquiries/reply/${id}`, 
                 { reply : reply }, { headers : {'Content-Type' : 'application/json' }}
             
             );

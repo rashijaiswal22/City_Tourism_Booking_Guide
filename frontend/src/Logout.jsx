@@ -9,7 +9,7 @@ const Signup = () => {
         localStorage.removeItem("user");
         console.log("User logged out from Signup component");
 
-        // 1 second baad login par bhej dein
+        // redirect to login after 1s
         const timer = setTimeout(() => {
             navigate("/login");
         }, 1000);

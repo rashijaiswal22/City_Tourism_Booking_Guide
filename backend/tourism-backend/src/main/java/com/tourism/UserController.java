@@ -4,11 +4,12 @@ import com.tourism.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
@@ -16,6 +17,7 @@ public class UserController {
 
     @GetMapping("/all-users")
     public List<User> getAllUsers(){
+
         return userRepository.findAll();
     }
     @DeleteMapping("/delete/{id}")
@@ -60,7 +62,7 @@ public class UserController {
     }
 
     @PutMapping("/update/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         return userRepository.findById(id).map(user -> {
             user.setName(userDetails.getName());

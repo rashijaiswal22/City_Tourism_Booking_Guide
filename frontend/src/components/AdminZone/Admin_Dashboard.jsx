@@ -8,7 +8,7 @@ const AdminDashboard = () => {
     const [recentBookings, setRecentBookings] = useState([]); 
     const navigate = useNavigate();
 
-    // useEffect ke andar fetchStats ko call karein
+    // fetchStats are called under useEffect
 useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user || user.role !== "ADMIN") {
@@ -21,10 +21,10 @@ useEffect(() => {
 const fetchStats = async () => {
     try {
         const [enqRes, userRes, packRes, bookRes] = await Promise.all([
-            axios.get("http://localhost:8080/api/enquiries/all"),
-            axios.get("http://localhost:8080/api/users/all-users"),
-            axios.get("http://localhost:8080/api/packages/all"), 
-            axios.get("http://localhost:8080/api/bookings/all")  
+            axios.get("https://city-tourism-booking-guide.onrender.com/api/enquiries/all"),
+            axios.get("https://city-tourism-booking-guide.onrender.com/api/users/all-users"),
+            axios.get("https://city-tourism-booking-guide.onrender.com/api/packages/all"), 
+            axios.get("https://city-tourism-booking-guide.onrender.com/api/bookings/all")  
         ]);
 
         setCounts({

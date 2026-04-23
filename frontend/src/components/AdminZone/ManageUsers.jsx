@@ -8,7 +8,7 @@ const ManageUsers = () => {
     const navigate = useNavigate();
 
     const fetchUsers = () => {
-        axios.get("http://localhost:8080/api/users/all-users")
+        axios.get("https://city-tourism-booking-guide.onrender.com/api/users/all-users")
             .then(res => setUsers(res.data))
             .catch(err => console.log("Error fetching users", err));
     };
@@ -20,7 +20,7 @@ const ManageUsers = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Do you really wanted to remove User?")) {
             try {
-                await axios.delete(`http://localhost:8080/api/users/delete/${id}`);
+                await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/users/delete/${id}`);
                 alert("User deleted!");
                 fetchUsers(); // Table refresh 
             } catch (err) {

@@ -20,7 +20,7 @@ const ManagePackages = () => {
 
     const fetchPackages = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/api/packages/all");
+            const res = await axios.get("https://city-tourism-booking-guide.onrender.com/api/packages/all");
             setPackages(res.data);
         } catch (err) {
             console.error(err);
@@ -44,10 +44,10 @@ const ManagePackages = () => {
         e.preventDefault();
         try {
             if (isEditing) {
-                await axios.put(`http://localhost:8080/api/packages/update/${currentId}`, newPkg);
+                await axios.put(`https://city-tourism-booking-guide.onrender.com/api/packages/update/${currentId}`, newPkg);
                 alert("Updated Successfully");
             } else {
-                await axios.post("http://localhost:8080/api/packages/add", newPkg);
+                await axios.post("https://city-tourism-booking-guide.onrender.com/api/packages/add", newPkg);
                 alert("Added Successfully");
             }
             closeForm();
@@ -67,7 +67,7 @@ const ManagePackages = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Delete this package?")) {
             try {
-                await axios.delete(`http://localhost:8080/api/packages/delete/${id}`);
+                await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/packages/delete/${id}`);
                 fetchPackages();
             } catch (err) {
                 alert("Delete failed");

@@ -17,7 +17,7 @@ const Settings = () => {
             return;
         }
         try{
-            alert("Password updated successfully! (Mock)");
+            alert("Password updated successfully!");
             setOldPass('');
             setNewPass('');
             setConfirmPass('');

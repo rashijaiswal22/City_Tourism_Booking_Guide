@@ -11,7 +11,7 @@ const Cart = () => {
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
         if (user) {
-            axios.get(`http://localhost:8080/api/cart/user/${user.id}`)
+            axios.get(`https://city-tourism-booking-guide.onrender.com/api/cart/user/${user.id}`)
                 .then(res => setCartItems(res.data))
                 .catch(err => console.error("Error fetching cart:", err));
         } else {
@@ -25,7 +25,7 @@ const Cart = () => {
     const handleRemove = async (id) => {
         if (window.confirm("Are you sure wanted to remove it?")) {
             try {
-                await axios.delete(`http://localhost:8080/api/cart/delete/${id}`);
+                await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/cart/delete/${id}`);
                 setCartItems(cartItems.filter(item => item.id !== id));
             } catch (err) {
                 alert("Item can't be deleted.Try after sometime");
@@ -52,10 +52,10 @@ const Cart = () => {
                     persons: 1 // Default 1
                 };
                 console.log("Sending Data:", bookingData);
-                await axios.post("http://localhost:8080/api/bookings/place", bookingData);
+                await axios.post("https://city-tourism-booking-guide.onrender.com/api/bookings/place", bookingData);
                 
                 // Deletion from cart
-                await axios.delete(`http://localhost:8080/api/cart/delete/${item.id}`);
+                await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/cart/delete/${item.id}`);
             }
 
             alert("Congratulations! Your Booking is Confirmed.");

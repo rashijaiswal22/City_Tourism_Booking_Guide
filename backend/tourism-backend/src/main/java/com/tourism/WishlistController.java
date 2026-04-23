@@ -3,13 +3,14 @@ package com.tourism;
 import com.tourism.repository.WishlistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 @RestController
     @RequestMapping("/api/wishlist")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "*")
     public class WishlistController {
 
         @Autowired
@@ -23,6 +24,7 @@ import java.util.List;
 
         @GetMapping("/user/{userId}")
         public List<Wishlist> getWishlist(@PathVariable Long userId) {
+
             return wishlistRepository.findByUserId(userId);
         }
 
@@ -32,4 +34,5 @@ import java.util.List;
             return ResponseEntity.ok("Removed from wishlist");
         }
     }
+
 

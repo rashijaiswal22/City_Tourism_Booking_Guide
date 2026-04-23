@@ -18,7 +18,7 @@ const EditUser = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:8080/api/users/update/${id}`, userToEdit);
+            await axios.put(`https://city-tourism-booking-guide.onrender.com/api/users/update/${id}`, userToEdit);
             alert("User Details Updated Successfully! ✅");
             navigate("/admin/users"); 
         } catch (err) {

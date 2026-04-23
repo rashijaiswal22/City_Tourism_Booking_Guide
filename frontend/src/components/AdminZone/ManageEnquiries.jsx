@@ -9,7 +9,7 @@ const ManageEnquiries = () => {
 
     const fetchEnquiries = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/api/enquiries/all");
+            const res = await axios.get("https://city-tourism-booking-guide.onrender.com/api/enquiries/all");
             setEnquiries(res.data);
         } catch (error) {
             console.error(error);
@@ -27,7 +27,7 @@ const ManageEnquiries = () => {
     const deleteEnquiry = async (id) => {
         if (window.confirm("Delete this enquiry?")) {
             try {
-                await axios.delete(`http://localhost:8080/api/enquiries/delete/${id}`);
+                await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/enquiries/delete/${id}`);
                 setEnquiries(enquiries.filter(enq => enq.id !== id));
             } catch (err) {
                 alert("Delete failed");
