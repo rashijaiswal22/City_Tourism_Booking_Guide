@@ -72,6 +72,10 @@ Follow these steps to set up the project on your local machine:
 * After installation, start the development server:
   npm start
 * The application will be accessible at` http://localhost:3000`
+
+## 🔗 Live Demo
+- **Frontend (Netlify):** [https://city-tourism-booking-guide.netlify.app/]
+- **Backend API (Render):** [https://city-tourism-booking-guide.onrender.com]
   
 ---
 
@@ -100,3 +104,4 @@ Follow these steps to set up the project on your local machine:
 
  💬 Response System
 ![Response](response.png)
+

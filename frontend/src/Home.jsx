@@ -12,7 +12,7 @@ const Home = () => {
         // Fetch packages from backend
         const fetchAllPackages = async () => {
             try {
-                const res = await axios.get("http://localhost:8080/api/packages/all");
+                const res = await axios.get("https://city-tourism-booking-guide.onrender.com/api/packages/all");
                 setPackages(res.data);
             } catch (err) {
                 console.error("Error fetching packages for home", err);
