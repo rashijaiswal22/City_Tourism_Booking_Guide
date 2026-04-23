@@ -13,7 +13,6 @@ public class BookingController {
     @Autowired
     private BookingRepository bookingRepository;
 
-    // React should call: http://localhost:8080/api/bookings/place
     @PostMapping("/place")
     public String addBooking(@RequestBody Booking booking) {
         if (booking.getStatus() == null) {

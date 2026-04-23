@@ -43,7 +43,7 @@ public class UserController {
     public ResponseEntity<?> loginUser(@RequestBody User loginData){
         User u = userRepository.findByEmail(loginData.getEmail());
 
-        // Password match
+        // Password matching
         if(u != null && u.getPassword().equals(loginData.getPassword())){
             u.setPassword(null);
             return ResponseEntity.ok(u);

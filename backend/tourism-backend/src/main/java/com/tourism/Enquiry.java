@@ -1,5 +1,4 @@
-package com.tourism; // Dhyaan dein: Ye package name controller se match hona chahiye
-
+package com.tourism;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,10 +15,10 @@ public class Enquiry {
     private String response;
     private String status;
 
-    // Default Constructor (Zaroori hai)
+    // Default Constructor
     public Enquiry() {}
 
-    // Getters and Setters (Inke bina save nahi hoga)
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getName() { return name; }
