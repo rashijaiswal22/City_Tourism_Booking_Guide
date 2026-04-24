@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const Registration = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '', email: '', username: '', mobile: '',
         gender: '', dob: '', password: '', confirm: ''
@@ -20,18 +21,30 @@ const Registration = () => {
             alert("Password and Confirm Password do not match!");
             return;
         }
+        setLoading(true);
         try {
         const response = await axios.post("https://city-tourism-booking-guide.onrender.com/api/users/register", formData);
         alert(response.data);
         navigate("/login");
         } catch (error) {
               console.error("Error:", error);
-            alert("Unable to save");
+            alert("Unable to save. The server might be slow, try again.");
+            setLoading(false);
     }
     };
 
     return (
         <div className="registration-page">
+            {/* Loading Overlay */}
+            {loading && (
+                <div className="loader-overlay">
+                    <div className="spinner"></div>
+                    <p className="loader-text">Registering you ! Keep patience. 🏛️</p>
+                </div>
+            )}
+
+            <div className={`registration-card-wrapper ${loading ? 'blur' : ''}`}></div>
+
             <div className="reg-hero" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/img/mahotsav.jpg')` }}>
                 <div className="hero-text text-center w-100 mt-5">
                     <h1>WELCOME TO LUCKNOW TOURISM!</h1>
@@ -98,7 +111,7 @@ const Registration = () => {
                             <label className="form-check-label" htmlFor="terms">I agree to the Terms & Conditions</label>
                         </div>
 
-                        <button type="submit" className="btn-reg">Register Now</button>
+                        <button type="submit" className="btn-reg" disabled={loading}>{loading ?  "Processing" : "Register Now"}</button>
                     </form>
                 </div>
             </div>
@@ -107,4 +120,5 @@ const Registration = () => {
 };
 
 export default Registration;
+
 

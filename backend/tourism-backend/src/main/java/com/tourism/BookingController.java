@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/bookings")
-@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*") // Added allowedHeaders
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Added allowedHeaders
 public class BookingController {
 
     @Autowired
