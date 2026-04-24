@@ -74,4 +74,22 @@ public class UserController {
 
     }
 
+    @PutMapping("/update-password/{id}")
+    public ResponseEntity<?> updatePassword(@PathVariable Long id, @RequestBody java.util.Map<String, String> passwords) {
+        return userRepository.findById(id).map(user -> {
+            String oldPassword = passwords.get("oldPassword");
+            String newPassword = passwords.get("newPassword");
+
+            // Check if old password matches
+            if (!user.getPassword().equals(oldPassword)) {
+                return ResponseEntity.status(401).body("Current password is incorrect!");
+            }
+
+            user.setPassword(newPassword);
+            userRepository.save(user);
+            return ResponseEntity.ok("Password updated successfully!");
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
 }
+

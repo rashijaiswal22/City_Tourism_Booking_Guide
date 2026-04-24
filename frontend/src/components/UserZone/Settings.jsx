@@ -17,14 +17,24 @@ const Settings = () => {
             toast.error("Password Mismatch!");
             return;
         }
-        try{
-            toast.success("Password updated successfully!");
-            setOldPass('');
-            setNewPass('');
-            setConfirmPass('');
-        } catch(err){
-            toast.error("Error in updating password")
+        const loggedInUser = JSON.parse(localStorage.getItem("user"));
+         if(!loggedInUser) {
+             toast.error("User not found, please login again.");
+             return;
         }
+        
+        try {
+        const res = await axios.put(`https://city-tourism-booking-guide.onrender.com/api/users/update-password/${loggedInUser.id}`, 
+            { oldPassword: oldPass, newPassword: newPass }
+        );
+
+        toast.success("Password updated successfully! 🎉");
+        setOldPass('');
+        setNewPass('');
+        setConfirmPass('');
+    } catch(err) {
+        toast.error(err.response?.data || "Error in updating password");
+    }
         
     };
 
