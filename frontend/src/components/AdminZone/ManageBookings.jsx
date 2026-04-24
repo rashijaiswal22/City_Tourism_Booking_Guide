@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './ManageBookings.css'; 
 
 const ManageBookings = () => {
@@ -23,11 +24,11 @@ const ManageBookings = () => {
             axios.delete(`https://city-tourism-booking-guide.onrender.com/api/bookings/delete/${id}`)
                 .then(() => {
                     setBookings(bookings.filter(b => b.id !== id));
-                    alert("Booking Deleted Successfully!");
+                    toast.success("Booking Deleted Successfully!");
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Error deleting booking!");
+                    toast.error("Error deleting booking!");
                 });
         }        
     };

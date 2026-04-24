@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const ReplyEnquiry = () => {
@@ -18,10 +19,10 @@ const ReplyEnquiry = () => {
                 { reply : reply }, { headers : {'Content-Type' : 'application/json' }}
             
             );
-            alert("Reply sent successfully!");
+            toast.success("Reply sent successfully!");
             navigate("/admin/enquiries"); 
         } catch (err) {
-            alert("Error sending reply!");
+            toast.error("Error in sending reply!");
         }
     };
 

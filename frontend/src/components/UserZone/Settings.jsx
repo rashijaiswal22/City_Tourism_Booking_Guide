@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './Settings.css';
 
 const Settings = () => {
@@ -13,16 +14,16 @@ const Settings = () => {
         e.preventDefault();
 
         if(newPass !== confirmPass){
-            alert("Password Mismatch!");
+            toast.error("Password Mismatch!");
             return;
         }
         try{
-            alert("Password updated successfully!");
+            toast.success("Password updated successfully!");
             setOldPass('');
             setNewPass('');
             setConfirmPass('');
         } catch(err){
-            alert("Error in updating password")
+            toast.error("Error in updating password")
         }
         
     };
@@ -87,7 +88,7 @@ const Settings = () => {
                                 </div>
 
                                 <button className="btn btn-outline-danger w-100" style={{width: '100%', borderRadius: '5px'}}
-                                    onClick={() => alert("Deactivate request sent.")} >
+                                    onClick={() => toast.success("Deactivate request sent.")} >
                                     Deactivate Account
                                 </button>
                             </div>

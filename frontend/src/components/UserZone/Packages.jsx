@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Packages.css';
+import { toast } from 'react-toastify';
 
 const Packages = () => {
     const navigate = useNavigate();
@@ -25,7 +27,7 @@ const Packages = () => {
     const handleAddToCart = async (pkg) => {
         const user = JSON.parse(localStorage.getItem("user"));
         if (!user) {
-            alert("Please login first!");
+            toast.error("Please login first!");
             navigate("/login");
             return;
         }
@@ -40,16 +42,16 @@ const Packages = () => {
 
         try {
             const response = await axios.post("https://city-tourism-booking-guide.onrender.com/api/cart/add", cartItem);
-            alert("Added to Cart! 🛒");
+            toast.success("Added to Cart! 🛒");
         } catch (error) {
-            alert("Connection failed!");
+            toast.error("Connection failed!");
         }
     };
 
     const handleAddToWishlist = async (pkg) => {
         const user = JSON.parse(localStorage.getItem("user"));
         if (!user) {
-            alert("Please Login First!");
+            toast.error("Please Login First!");
             navigate('/login');
             return;
         }
@@ -64,9 +66,9 @@ const Packages = () => {
 
         try {
             await axios.post("https://city-tourism-booking-guide.onrender.com/api/wishlist/add", wishItem);
-            alert("Added to Wishlist! ❤️");
+            toast.success("Added to Wishlist! ❤️");
         } catch (err) {
-            alert("Error in adding!");
+            toast.error("Error in adding!");
         }
     };
 

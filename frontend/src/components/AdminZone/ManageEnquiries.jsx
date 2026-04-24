@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './ManageEnquiries.css'; 
 
 const ManageEnquiries = () => {
@@ -30,7 +31,7 @@ const ManageEnquiries = () => {
                 await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/enquiries/delete/${id}`);
                 setEnquiries(enquiries.filter(enq => enq.id !== id));
             } catch (err) {
-                alert("Delete failed");
+                toast.error("Deletion failed");
             }
         }
     };

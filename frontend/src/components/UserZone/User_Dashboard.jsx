@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { toast } from 'react-toastify';
 import "./User_Dashboard.css";
 
 const UserDashboard = () => {
@@ -10,7 +11,7 @@ const UserDashboard = () => {
 
     useEffect(() => {
         if (!storedUser || storedUser.role === "ADMIN") {
-            alert("Please login as a User to access this dashboard.");
+            toast.error("Please login as a User to access this dashboard.");
             navigate("/login");
         }
     }, [storedUser, navigate]);

@@ -1,6 +1,7 @@
 import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './Profile.css';
 
 const Profile = () => {
@@ -44,7 +45,7 @@ const handleChange = (e) => {
     try {
         await axios.put(`https://city-tourism-booking-guide.onrender.com/api/users/update/${savedUser.id}`, userData);
         setIsEditing(false);
-        alert("Profile Updated Permanently! ✅");
+        toast.success("Profile Updated Permanently! ✅");
         
         // LocalStorage update with new name AND mobile
         localStorage.setItem("user", JSON.stringify({ 
@@ -53,7 +54,7 @@ const handleChange = (e) => {
             mobile: userData.mobile 
         }));
     } catch (err) {
-        alert("Update failed!");
+        toast.error("Update failed!");
         console.error(err);
     }
 };

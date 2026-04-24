@@ -35,7 +35,7 @@ public class UserController {
         }
 
         // 2. Default Role set
-        user.setRole("ADMIN");
+        user.setRole("USER");
 
         userRepository.save(user);
         return "Registration successful for: " + user.getName();

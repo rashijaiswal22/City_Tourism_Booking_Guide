@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import axios from'axios';
+import { toast } from 'react-toastify';
 import './ManageUsers.css';
 
 const ManageUsers = () => {
@@ -21,10 +22,10 @@ const ManageUsers = () => {
         if (window.confirm("Do you really wanted to remove User?")) {
             try {
                 await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/users/delete/${id}`);
-                alert("User deleted!");
+                toast.success("User deleted!");
                 fetchUsers(); // Table refresh 
             } catch (err) {
-                alert("Deletion failed!");
+                toast.error("Deletion failed!");
             }
         }
     };   

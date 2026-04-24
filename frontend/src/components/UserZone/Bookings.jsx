@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Bookings.css';
 
@@ -26,11 +27,11 @@ const Bookings = () => {
                 // for delete or status update call
                 await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/bookings/delete/${id}`);
                 
-                // UI se hatane ke liye
+                // Removing from UI
                 setMyBookings(myBookings.filter(booking => booking.id !== id));
-                alert("Booking Cancelled Successfully!");
+                toast.success("Booking Cancelled Successfully!");
             } catch (err) {
-                alert("Cancellation failed! Try again.");
+                toast.error("Cancellation failed! Try again.");
             }
         }
     };

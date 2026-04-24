@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './Registration.css';
 import axios from 'axios'; 
 
@@ -18,17 +19,17 @@ const Registration = () => {
     const handleSubmit = async (e) => { 
         e.preventDefault();
         if (formData.password !== formData.confirm) {
-            alert("Password and Confirm Password do not match!");
+            toast.error("Password and Confirm Password do not match!");
             return;
         }
         setLoading(true);
         try {
         const response = await axios.post("https://city-tourism-booking-guide.onrender.com/api/users/register", formData);
-        alert(response.data);
+        toast.success(response.data);
         navigate("/login");
         } catch (error) {
               console.error("Error:", error);
-            alert("Unable to save. The server might be slow, try again.");
+            toast.error("Unable to save. The server might be slow, try again.");
             setLoading(false);
     }
     };

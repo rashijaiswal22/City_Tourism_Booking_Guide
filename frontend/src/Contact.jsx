@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Contact.css';
 
@@ -21,12 +22,12 @@ const Contact = () => {
             const response = await axios.post("https://city-tourism-booking-guide.onrender.com/api/enquiries/send", formData);
             
             if(response.status === 200) {
-                alert("Message Sent Successfully! We will contact you soon.");
+                toast.success("Message Sent Successfully! We will contact you soon.");
                 setFormData({ name: '', email: '', subject: '', message: '' }); // Form clear karein
             }
         } catch (error) {
             console.error("Error sending enquiry:", error);
-            alert("Failed to send message.");
+            toast.error("Failed to send message.");
         }
         
     };

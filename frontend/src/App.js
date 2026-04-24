@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from './Navbar';
 import Home from './Home'; 
@@ -83,6 +85,7 @@ function AppContent() {
       </div>
 
       {!hideLayout && <Footer />}
+      <ToastContainer position="top-right" autoClose={3000} theme="colored" />
     </div>
   );
 }

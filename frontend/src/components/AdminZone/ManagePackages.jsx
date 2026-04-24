@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './ManagePackages.css';
 
 const ManagePackages = () => {
@@ -45,15 +46,15 @@ const ManagePackages = () => {
         try {
             if (isEditing) {
                 await axios.put(`https://city-tourism-booking-guide.onrender.com/api/packages/update/${currentId}`, newPkg);
-                alert("Updated Successfully");
+                toast.success("Updated Successfully");
             } else {
                 await axios.post("https://city-tourism-booking-guide.onrender.com/api/packages/add", newPkg);
-                alert("Added Successfully");
+                toast.success("Added Successfully");
             }
             closeForm();
             fetchPackages();
         } catch (err) {
-            alert("Error saving package");
+            toast.error("Error saving package");
         }
     };
 
@@ -70,7 +71,7 @@ const ManagePackages = () => {
                 await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/packages/delete/${id}`);
                 fetchPackages();
             } catch (err) {
-                alert("Delete failed");
+                toast.error("Delete failed");
             }
         }
     };

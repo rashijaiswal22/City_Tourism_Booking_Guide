@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './Wishlist.css';
 
 const Wishlist = () => {
@@ -22,7 +23,7 @@ const Wishlist = () => {
             await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/wishlist/delete/${id}`);
             setWishlistItems(wishlistItems.filter(item => item.id !== id));
         } catch (err) {
-            alert("Failed to Delete!");
+            toast.error("Failed to Delete!");
         }
     };
 
@@ -37,9 +38,9 @@ const Wishlist = () => {
                 price: item.price
             });
             await handleRemove(item.id);
-            alert("Moved to Cart! 🛒");
+            toast.success("Moved to Cart! 🛒");
         } catch (err) {
-            alert("Error moving to cart");
+            toast.error("Error moving to cart");
         }
     };
 

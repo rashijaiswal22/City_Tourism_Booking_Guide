@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const EditUser = () => {
     const { id } = useParams();
@@ -19,10 +20,10 @@ const EditUser = () => {
         e.preventDefault();
         try {
             await axios.put(`https://city-tourism-booking-guide.onrender.com/api/users/update/${id}`, userToEdit);
-            alert("User Details Updated Successfully! ✅");
+            toast.success("User Details Updated Successfully! ✅");
             navigate("/admin/users"); 
         } catch (err) {
-            alert("Update failed!");
+            toast.error("Update failed!");
         }
     };
 

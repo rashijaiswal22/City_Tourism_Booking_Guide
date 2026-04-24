@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [user, setUser] = useState(''); 
@@ -19,7 +20,7 @@ const Login = () => {
         
         if (res.data) {
             localStorage.setItem("user", JSON.stringify(res.data));
-            alert("Welcome, " + res.data.name);
+            toast.success("Welcome, " + res.data.name);
 
             // Redirect as per role 
             if (res.data.role === "ADMIN") {
@@ -29,7 +30,7 @@ const Login = () => {
             }
         }
     } catch (err) {
-        alert(err.response?.data || "Invalid Email or Password!");
+        toast.error(err.response?.data || "Invalid Email or Password!");
         setLoading(false);
     }
 };
@@ -40,7 +41,7 @@ const Login = () => {
             {loading && (
                 <div className="loader-overlay">
                     <div className="spinner"></div>
-                    <p className="loader-text">Connecting with the server... Please kep patience</p>
+                    <p className="loader-text">Connecting with the server... Please keep patience</p>
                 </div>
             )}
 

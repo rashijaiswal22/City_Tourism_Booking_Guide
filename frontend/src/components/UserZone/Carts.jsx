@@ -1,5 +1,6 @@
 import React, { useState , useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Carts.css';
 
@@ -28,7 +29,7 @@ const Cart = () => {
                 await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/cart/delete/${id}`);
                 setCartItems(cartItems.filter(item => item.id !== id));
             } catch (err) {
-                alert("Item can't be deleted.Try after sometime");
+                toast.error("Item can't be deleted.Try after sometime");
             }
         }
     };
@@ -58,10 +59,10 @@ const Cart = () => {
                 await axios.delete(`https://city-tourism-booking-guide.onrender.com/api/cart/delete/${item.id}`);
             }
 
-            alert("Congratulations! Your Booking is Confirmed.");
+            toast.success("Congratulations! Your Booking is Confirmed.");
             navigate('/confirm-booking');
         } catch (err) {
-            alert("Booking failed!");
+            toast.error("Booking failed!");
         } finally {
             setIsProcessing(false);
         }
