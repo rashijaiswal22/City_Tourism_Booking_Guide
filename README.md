@@ -8,13 +8,13 @@ administrators.
  
 ## Frontend
 - Library : React.js (Hooks, Router, Axios)
-- Styling : Bootstrap 5, Custom CSS3 Animations
+- Styling : Bootstrap 5, CSS3 
 - Icons : FontAwesome
 
 ## Backend
 - Framework : Spring Boot 3.x
 - Architecture : RESTful APIs using Spring MVC 
-- ORM : Hibernate / Spring Data JPA
+- ORM : Spring Data JPA
 
 ## Database
 - System : MySQL 8.0
